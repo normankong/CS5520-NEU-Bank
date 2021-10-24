@@ -149,6 +149,9 @@ export default function QuickWithdrawScreen(navigation) {
         </DataTable>
         <View style={{ flexDirection: "row", marginLeft: 10, marginRight: 20, paddingHorizontal: 10 }}>
           <Text>On ATM machine, click Quick Cash button and scan the QR code</Text>
+          <Pressable onPress={showMap}>
+            <Icon color='#5E76FA' type='font-feather' name='map' size={20} />
+          </Pressable>
         </View>
       </View>
     )
