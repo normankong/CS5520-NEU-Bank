@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "582556811375",
+    "project_id": "cs5520-neu-bank",
+    "storage_bucket": "cs5520-neu-bank.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:582556811375:android:ce3951f04782de4eca4d9a",
+        "android_client_info": {
+          "package_name": "host.exp.exponent"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "582556811375-qm11orhrctjuhj4e68lg61n116v2qk7r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA4aSmgT9rSsX1HKfAMhdDQ2ItAl59htqU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "582556811375-qm11orhrctjuhj4e68lg61n116v2qk7r.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

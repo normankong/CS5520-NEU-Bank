@@ -8,17 +8,28 @@ import apiConfig from './apiConfig';
 class ApiHelper{
     
     getAccountSummary = async () => {
-        let url = apiConfig.account.summary;
-        const json = await this.fetch(url, {
+        const acctSum = await this.fetch(apiConfig.account.summary, {
             method: 'GET',
             headers: myHeaders
         });
-        return json;
+
+        const acctTxn = await this.fetch(apiConfig.account.history, {
+            method: 'GET',
+            headers: myHeaders
+        });
+
+        acctSum.forEach(x => {
+            let accountNumber = x.accountNumber;
+            let txnAmt = acctTxn.filter(y => (y.accountNumber == accountNumber)).map(y => parseInt(y.txnAmount,10)).reduce((a,b) => a+b, 0);
+            x.accountBalance = parseInt(x.accountBalance) + txnAmt;
+        });
+
+        return acctSum;
     }
 
     getAccountTransaction = async (item) => {
         let accountNumber = item.accountNumber;
-        let url = apiConfig.account.history + "?accountNumber="+accountNumber;
+        let url = apiConfig.account.history + "accountNumber="+accountNumber;
 
         const json = await this.fetch(url, {
             method: 'GET',
@@ -43,6 +54,15 @@ class ApiHelper{
         const json = await this.fetch(url, {
             method: 'GET',
             headers: myHeaders
+        });
+        return json;
+    }
+
+    getUserInfo = async (accessToken) => {
+        let url = apiConfig.google.userinfo.replace("%ACCESS_TOKEN%", accessToken);
+
+        const json = await this.fetch(url, {
+            method: 'GET',
         });
         return json;
     }

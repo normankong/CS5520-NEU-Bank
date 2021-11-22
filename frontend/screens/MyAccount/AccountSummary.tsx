@@ -82,7 +82,7 @@ export default function AccountSummaryScreen({ navigation }: RootTabScreenProps<
         }}>
           <View style={[{ flexDirection: "row" }, styles.accountRow]}>
             <View style={{ flexDirection: "row" }}>
-              <Icon color='blue' type='font-awesome' name='home' />
+              <Icon color='blue' type='font-awesome' name={item.icon} />
               <Text style={[styles.accountNumber, { paddingLeft: 5 }]}>
                 {item.accountNumber}
               </Text></View>

@@ -8,6 +8,7 @@ import * as ExpoLocation from 'expo-location';
 
 import { Text, View } from '../../components/Themed';
 import apiHelper from '../../common/apiHelper';
+import { colorsDark } from 'react-native-elements/dist/config';
 
 export default function ATMLocationScreen() {
 
@@ -30,22 +31,18 @@ export default function ATMLocationScreen() {
       }
 
       let location = await ExpoLocation.getCurrentPositionAsync({});
-      setLocation(location);
+      let myLocation = {
+        longitude : location.coords.longitude,
+        latitude : location.coords.latitude
+      }
+      setLocation(myLocation);
       setLoading(false);
-
-      getATMBranchs();
+      
+      let data = await apiHelper.getATMBranchs();
+      setATMBranchData(data);
     })();
   }, []);
 
-  const getATMBranchs = async () => {
-    try {
-      let data = await apiHelper.getATMBranchs();
-      setATMBranchData(data);
-    } catch (error) {
-      console.error(error);
-    } finally {
-    }
-  }
 
   const showCard = (marker, index) => {
     let info = atmBranchData[index];
@@ -55,6 +52,7 @@ export default function ATMLocationScreen() {
       url: info.url
     }
     setATMInfo(result);
+    setLocation(info.latlng);
   }
 
   const MainScreen = () => {
@@ -63,8 +61,8 @@ export default function ATMLocationScreen() {
         <View style={styles.container}>
           <MapView
             initialRegion={{
-              latitude: location.coords.latitude,
-              longitude: location.coords.longitude,
+              latitude: location.latitude,
+              longitude: location.longitude,
               latitudeDelta: 0.015,
               longitudeDelta: 0.0121,
             }}

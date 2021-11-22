@@ -40,18 +40,18 @@ export default function AccountDetailsScreen(navigation) {
   return (
     <View style={[styles.container]}>
 
-      <View style={[styles.accountDetail, { marginTop: 0, paddingVertical : 10, paddingLeft : 10}]}>
-          <View>
-            <Icon color='blue' type='font-awesome' name='home' />
-            <Text style={[styles.accountDescription]}>
-              {item.accountDescription}
-            </Text>
-          </View>
-          <View style={{ flexDirection: "row" }}>
-            <Text style={[styles.accountDescription]}>
-              {item.accountNumber}
-            </Text>
-          </View>
+      <View style={[styles.accountDetail, { marginTop: 0, paddingVertical: 10, paddingLeft: 10 }]}>
+        <View>
+          <Icon color='blue' type='font-awesome' name='home' />
+          <Text style={[styles.accountDescription]}>
+            {item.accountDescription}
+          </Text>
+        </View>
+        <View style={{ flexDirection: "row" }}>
+          <Text style={[styles.accountDescription]}>
+            {item.accountNumber}
+          </Text>
+        </View>
       </View>
 
       <View style={{ flex: 1, backgroundColor: "#5E76FA" }}>
@@ -76,11 +76,11 @@ const ItemView = ({ item }) => {
         <View style={{ flexDirection: "row" }}>
           <Icon color='blue' type='font-awesome' name={item.txnType} style={{ width: 25, marginRight: 10 }} />
           <Text style={[styles.accountDescription, { width: 200 }]}>
-            {item.narrative}
+            {item.txnDate} {item.narrative}
           </Text>
         </View>
         <Text style={[styles.accountBalance]}>
-          {item.accountSign} {item.accountBalance} {item.accountCurrency}
+          {item.txnAmount} {item.accountCurrency}
         </Text>
       </View>
     </View>
