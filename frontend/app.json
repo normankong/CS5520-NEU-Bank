@@ -1,12 +1,10 @@
 {
   "expo": {
-    "name": "neubank",
-    "slug": "neubank",
+    "name": "NEUBank",
+    "slug": "frontend",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "neubank",
-    "userInterfaceStyle": "light",
     "splash": {
       "image": "./assets/images/splash.png",
       "resizeMode": "contain",
@@ -19,26 +17,31 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true,
-      "bundleIdentifier": "com.bank.neu"
+      "supportsTablet": true
     },
     "android": {
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/images/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
-      },
       "package": "host.exp.exponent",
       "googleServicesFile": "./google-services.json",
-      "config": {
-        "googleMaps": {
-          "apiKey": "AIzaSyBq4At5r82dulRGLmnZXR4U-WPOA3xYNdI"
-        }
-      }
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/images/adaptive-icon.png",
+        "backgroundColor": "#FFFFFF"
+      },
+      "permissions": ["WRITE_EXTERNAL_STORAGE"]
     },
     "web": {
       "favicon": "./assets/images/favicon.png"
     },
-    "description": "CS5520 NEU Bank",
-    "githubUrl": "https://github.com/normankong/CS5520-NEU-Bank"
+    "plugins": [
+      [
+        "expo-notifications",
+        {
+          "icon": "./assets/push/icon.png",
+          "color": "#ffffff",
+          "sounds": [
+            "./assets/push/notification.wav"
+          ]
+        }
+      ]
+    ]
   }
 }

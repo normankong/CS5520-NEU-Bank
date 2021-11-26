@@ -1,16 +1,25 @@
 export default {
+  // account: {
+  //   summary : "https://run.mocky.io/v3/9fa20245-be9f-4430-9f4c-b474f491397a",
+  //   history : "https://run.mocky.io/v3/a292f9de-7b84-49de-a757-f2817ba7919c"    
+  // },
+  // quickCash: {
+  //   acctList : "https://run.mocky.io/v3/9fa20245-be9f-4430-9f4c-b474f491397a",
+  //   instruction: "https://run.mocky.io/v3/cefddf07-77c2-4c94-86e0-80f9da4927c1"
+  // },
   account: {
-    summary : "https://sheet.best/api/sheets/e3806cf2-041b-4719-9085-8b792e7c840c/search?Owner=normankong@gmail.com",
-    history : "https://sheet.best/api/sheets/443c355f-9031-40ec-b36e-55acae97b304/search?Owner=normankong@gmail.com&",
+    summary : "https://opensheet.vercel.app/1x7NxRg0fLb_lgPYb0rpR2jpSWmcdv_Rur3neRHe0nJU/1",
+    history : "https://opensheet.vercel.app/1_9rMspv4IfiWiJ7Ejo_lOIeaPLyzcXk6qNrNhx23uDU/1",
   },
   quickCash: {
-    acctList : "https://sheet.best/api/sheets/e3806cf2-041b-4719-9085-8b792e7c840c/search?Owner=normankong@gmail.com",
-    instruction : "https://utility.normankong.workers.dev/neu/quickCash.json",
+    acctList : "https://opensheet.vercel.app/1x7NxRg0fLb_lgPYb0rpR2jpSWmcdv_Rur3neRHe0nJU/1",
+    instruction: "https://run.mocky.io/v3/cefddf07-77c2-4c94-86e0-80f9da4927c1",
+    // instruction : "https://poc-cloudflare-pages.pages.dev/quickCash",
   },
   common: {
-    atmBranchs : "https://utility.normankong.workers.dev/neu/atmbranch.json"
+    atmBranchs : "https://opensheet.vercel.app/1ryKDuq3lXHJ_0xV5zj3Tl_5EQTs2SjpQoUdQIq2a6lU/1"
   },
-  google: {
-    userinfo : "https://www.googleapis.com/oauth2/v1/userinfo?access_token=%ACCESS_TOKEN%"
-  }
+
+  API_TOKEN : "ed85054d-7416-45b5-bd1a-41b05d973275",
+  ANDROID_CLIENT_ID : "582556811375-cnn3d6oa3anhf9qn0aurfh0fe16okmkq.apps.googleusercontent.com",
 };

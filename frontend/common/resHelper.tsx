@@ -1,5 +1,6 @@
 export default {
     account: {
-        backgroundImage: "https://utility.normankong.workers.dev/neu/accounts.png"
+        acctSumBackground: "https://poc-cloudflare-pages.pages.dev/assets/images/acctSumBackground.png",
+        acctTxnBackground: "https://poc-cloudflare-pages.pages.dev/assets/images/acctTxnBackground.png"
     }
 };
