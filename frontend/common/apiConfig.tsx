@@ -13,8 +13,8 @@ export default {
   },
   quickCash: {
     acctList : "https://opensheet.vercel.app/1x7NxRg0fLb_lgPYb0rpR2jpSWmcdv_Rur3neRHe0nJU/1",
-    instruction: "https://run.mocky.io/v3/cefddf07-77c2-4c94-86e0-80f9da4927c1",
-    // instruction : "https://poc-cloudflare-pages.pages.dev/quickCash",
+    // instruction: "https://run.mocky.io/v3/cefddf07-77c2-4c94-86e0-80f9da4927c1",
+    instruction : "https://poc-cloudflare-pages.pages.dev/quickCash",
   },
   common: {
     atmBranchs : "https://opensheet.vercel.app/1ryKDuq3lXHJ_0xV5zj3Tl_5EQTs2SjpQoUdQIq2a6lU/1"
