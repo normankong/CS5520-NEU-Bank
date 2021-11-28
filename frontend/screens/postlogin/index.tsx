@@ -6,6 +6,8 @@ import * as React from 'react';
 
 const Stack = createNativeStackNavigator();
 
+import PreLoginScreen from "../prelogin";
+
 // Screens
 import DashboardScreen from "./dashboard";
 import InvestmentScreen from "./investment";
@@ -33,7 +35,8 @@ function RootNavigator() {
       <Stack.Screen name="QuickCashConfirmScreen" component={QuickCashConfirmScreen} options={{ title: 'Confirm Detail', headerShown: false }} />
 
       <Stack.Screen name="ATMLocationScreen" component={ATMLocationScreen} options={{ title: 'ATM Location' }} />
-
+      <Stack.Screen name="PreLoginScreen" component={PreLoginScreen} options={{ headerShown: false }} />
+      <Stack.Screen name="PostLoginScreen" component={Screen} options={{ headerShown: false }} />
     </Stack.Navigator>
   );
 }

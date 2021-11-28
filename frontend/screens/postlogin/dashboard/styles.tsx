@@ -71,6 +71,13 @@ export const styles = StyleSheet.create({
         height: 190,
     },
     avator: {
+        marginLeft: 1,
+        marginTop: 3,
+        width: 72,
+        height: 72,
+        borderRadius: 40,
+    },
+    avatorContainer: {
         marginLeft: 4,
         marginTop: 2,
         width: 72,

@@ -1,4 +1,4 @@
-import { Pressable, ImageBackground, FlatList, RefreshControl, Text, View, Image } from 'react-native';
+import { Pressable, ImageBackground, FlatList, RefreshControl, Text, View, Image, Alert } from 'react-native';
 import React, { useEffect, useState } from 'react';
 import { Icon } from 'react-native-elements'
 import { Banner } from 'react-native-paper';
@@ -10,6 +10,7 @@ import { styles } from './styles'
 import apiHelper from '../../../common/apiHelper';
 import resHelper from '../../../common/resHelper';
 import neuHelper from '../../../common/neuHelper';
+import { TouchableHighlight } from 'react-native-gesture-handler';
 
 export default function Screen({ navigation }) {
   const user = neuHelper.getUser();
@@ -101,11 +102,26 @@ export default function Screen({ navigation }) {
   };
 
   const image = { uri: resHelper.account.acctSumBackground };
+
+  const logoff = () => {
+    Alert.alert("Log off", "Are you sure?", [
+      { text: "Cancel", onPress: () => console.log("user cancel logoff"), style: "cancel" },
+      {
+        text: "OK", onPress: () => {
+          neuHelper.setUser(null);
+          navigation.navigation.navigate("PreLoginScreen")
+        }
+      }
+    ])
+  }
+
   return (
     <View style={styles.container}>
 
       <ImageBackground source={image} style={styles.background_image}>
-        <Image source={{ uri: avator }} style={styles.avator} />
+        <TouchableHighlight style={styles.avator} onPress={logoff}>
+          <Image source={{ uri: avator }} style={styles.avator}/>
+        </TouchableHighlight>
       </ImageBackground>
 
       <BannerView></BannerView>
