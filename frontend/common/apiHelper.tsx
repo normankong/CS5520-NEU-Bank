@@ -9,6 +9,7 @@ class ApiHelper {
 
     getAccountSummary = async (user) => {
         let owner = user.email;
+        console.log(owner)
         let acctSumURL = apiConfig.account.summary
         let acctTxnURL = apiConfig.account.history
         console.log(user);
