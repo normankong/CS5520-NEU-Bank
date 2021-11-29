@@ -28,7 +28,9 @@
     "expo-status-bar": "~1.1.0",
     "lottie-react-native": "^5.0.1",
     "react": "17.0.1",
+    "react-bootstrap": "^2.0.2",
     "react-dom": "17.0.1",
+    "react-facebook-login": "^4.1.1",
     "react-native": "0.64.3",
     "react-native-btr": "^2.1.2",
     "react-native-elements": "^3.4.2",
@@ -44,12 +46,14 @@
     "react-native-web": "0.17.1",
     "react-native-webview": "^11.14.4",
     "react-session-api": "^1.1.0",
-    "rn-linkedin-login": "^1.0.4"
+    "rn-linkedin-login": "^1.0.4",
+    "expo-facebook": "~12.0.3"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
     "@types/react": "~17.0.21",
     "@types/react-native": "~0.64.12",
+    "prop-types": "^15.7.2",
     "typescript": "~4.3.5"
   },
   "private": true
