@@ -198,6 +198,9 @@ const Screen = ({navigation}) => {
                 <TouchableOpacity onPress={signInAsync}>
                     <Image source={require('../../assets/images/signin.png')} style={styles.signin}/>
                 </TouchableOpacity>
+                <TouchableOpacity onPress={logIn} style={styles.fbLoginBtn}>
+                    <Text style={{color: "#fff"}}>Login with Facebook</Text>
+                </TouchableOpacity>
                 <LinkedInModal
                     // clientID="86c1nrasoa623w"
                     // clientSecret="Fnt1XPi2ZTk7uB3r"
@@ -211,9 +214,7 @@ const Screen = ({navigation}) => {
                     permissions={["r_liteprofile", "r_emailaddress"]}
                 />
 
-                <TouchableOpacity onPress={logIn} style={styles.fbLoginBtn}>
-                    <Text style={{color: "#fff"}}>Login with Facebook</Text>
-                </TouchableOpacity>
+
 
 
                 <Separator/>
@@ -256,7 +257,8 @@ const styles = StyleSheet.create({
         backgroundColor: '#4267b2',
         paddingVertical: 10,
         paddingHorizontal: 20,
-        borderRadius: 20
+        borderRadius: 20,
+        margin:10
     },
 
 
