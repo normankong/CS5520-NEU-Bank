@@ -8,11 +8,10 @@ import apiConfig from './apiConfig';
 class ApiHelper {
 
     getAccountSummary = async (user) => {
-        let owner = user.email;
-        console.log(owner)
+        let owner = user.email == undefined ? "undefined" : user.email;
         let acctSumURL = apiConfig.account.summary
         let acctTxnURL = apiConfig.account.history
-        console.log(user);
+
         let acctSum = await this.fetch(acctSumURL, {
             method: 'GET',
             headers: myHeaders

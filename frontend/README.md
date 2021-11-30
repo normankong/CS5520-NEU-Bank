@@ -1,5 +1,8 @@
 
-Medium Guide https://inaguirre.medium.com/react-native-login-with-google-quick-guide-fe351e464752
+Google Signin   https://inaguirre.medium.com/react-native-login-with-google-quick-guide-fe351e464752
+Facebook Signin https://rishi-vedpathak.medium.com/react-native-login-with-facebook-be53f46b7fe5
+LinkedIn Signin https://docs.microsoft.com/en-us/linkedin/marketing/authentication/lms-generate-an-access-token
+Geeneral        https://medium.com/@milind.patil/social-login-for-react-native-app-facebook-linkedin-gmail-815c4832f77
 
 ### expo installation
 expo install @react-navigation/native 

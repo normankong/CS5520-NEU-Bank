@@ -120,7 +120,8 @@ const Screen = ({navigation}) => {
     async function logIn() {
         try {
             await Facebook.initializeAsync({
-                appId: '594918918390788',
+                // appId: '594918918390788',
+                appId : '1092909974844249'
             });
             const {
                 type,
@@ -141,7 +142,7 @@ const Screen = ({navigation}) => {
                 //     })
                 //     .catch(e => console.log(e))
                 const response = await fetch(`https://graph.facebook.com/me?access_token=${token}`);
-                Alert.alert('Logged in!', `Hi ${(await response.json()).name}!`);
+                // Alert.alert('Logged in!', `Hi ${(await response.json()).name}!`);
 
                 let id = await fetch(
                     `https://graph.facebook.com/me?access_token=${token}&fields=id`
@@ -149,6 +150,7 @@ const Screen = ({navigation}) => {
                 let name = await fetch(
                     `https://graph.facebook.com/me?access_token=${token}&fields=name`
                 );
+
                 let email = await fetch(
                     `https://graph.facebook.com/me?fields=email&access_token=${token}`
                 );
@@ -169,7 +171,7 @@ const Screen = ({navigation}) => {
                     "name": userName.name,
                     "photoUrl": userPicture.picture.data.url,
                 }
-                // console.log(user);
+                console.log(user);
 
                 setLogin(true);
                 let data = await apiHelper.getAccountSummary(user);
@@ -197,9 +199,11 @@ const Screen = ({navigation}) => {
                     <Image source={require('../../assets/images/signin.png')} style={styles.signin}/>
                 </TouchableOpacity>
                 <LinkedInModal
-                    clientID="86c1nrasoa623w"
-                    clientSecret="Fnt1XPi2ZTk7uB3r"
-                    redirectUri="http://192.168.1.160:19000"
+                    // clientID="86c1nrasoa623w"
+                    // clientSecret="Fnt1XPi2ZTk7uB3r"
+                    clientID="862keorqhuyk7u"
+                    clientSecret="UIDIvGDEbHpIizNh"
+                    redirectUri="https://oauth.pstmn.io/v1/callback"
                     onSuccess={(data) => linkedin_signin_success_handler(data)}
                     onError={(data) => linkedin_signin_fail_handler(data)}
                     animationType="slide"
