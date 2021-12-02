@@ -8,6 +8,9 @@ import { styles } from './styles'
 import apiHelper from '../../../common/apiHelper';
 import resHelper from '../../../common/resHelper';
 import neuHelper from '../../../common/neuHelper';
+import { ScrollView } from 'react-native-gesture-handler';
+import { LinearGradient, Stop, Defs } from 'react-native-svg'
+import { BarChart, Grid, XAxis, YAxis } from 'react-native-svg-charts'
 
 export default function Screen(navigation) {
 
@@ -16,6 +19,7 @@ export default function Screen(navigation) {
 
   const [isLoading, setLoading] = useState(true);
   const [accountTxnData, setAccountTxn] = useState([]);
+  const [txnsPerDay, setTxnsPerDay] = useState([]);
   const [accountSumData, setAccountSum] = useState([]);
   const [refreshing, setRefreshing] = React.useState(false);
 
@@ -25,9 +29,44 @@ export default function Screen(navigation) {
     wait(2000).then(() => setRefreshing(false));
   }, []);
 
+  const arrangeTxns = (data) => {
+    const getDaysArray = (startDate, endDate) => {
+      let dates : String[]= []
+      //to avoid modifying the original date
+      const theDate = new Date(startDate)
+      while (theDate < endDate) {
+        dates = [...dates, (new Date(theDate)).toLocaleDateString("en-US")]
+        theDate.setDate(theDate.getDate() + 1)
+      }
+      return dates
+    }
+
+    const today = new Date()
+    const priorDate = new Date(new Date().setDate(today.getDate()-30))
+    const datesArr = getDaysArray(priorDate, today);
+    const graphDates = data.map(el=> ({
+      date: (new Date(el.txnDate)).toLocaleDateString("en-US"),
+      amount: parseInt(el.txnAmount),
+    }))
+
+    const dailySpending = {}
+    datesArr.forEach(d => dailySpending[d] = 0)    
+
+    graphDates.forEach(el => {
+      if (el.date in dailySpending)
+      dailySpending[el.date] = dailySpending[el.date] + el.amount
+    })
+    const spendingArr : {date: string, amount: unknown}[] = []
+    for (const [key, value] of Object.entries(dailySpending)) {
+      spendingArr.push({date: key, amount: value});
+    }
+    setTxnsPerDay(spendingArr)
+  }
+
   const getAccountTransaction = async () => {
     try {
       let data = await apiHelper.getAccountTransaction(user, item);
+      arrangeTxns(data)
       setAccountTxn(data);
     } catch (error) {
       console.error(error);
@@ -53,7 +92,16 @@ export default function Screen(navigation) {
 
   const image = { uri: resHelper.account.acctTxnBackground };
 
-  return (
+  const Gradient = () => (
+    <Defs key={'gradient'}>
+        <LinearGradient id={'gradient'} x1={'0%'} y={'0%'} x2={'0%'} y2={'100%'}>
+            <Stop offset={'0%'} stopColor={'rgb(134, 65, 244)'}/>
+            <Stop offset={'100%'} stopColor={'rgb(66, 194, 244)'}/>
+        </LinearGradient>
+    </Defs>
+  )
+
+   return (
     <View style={[styles.container]}>
 
       {/* Account Summary */}
@@ -71,17 +119,37 @@ export default function Screen(navigation) {
       </View>
 
       {/* Transaction History */}
-      <View style={[styles.accountTransaction]}>
+      <View style={[styles.accountTransactionTable]}>
         {isLoading ?
           <PacmanIndicator color='white' size={60} /> :
           
-            (accountTxnData.length == 0) ? <NoTransaction/> : 
-            <FlatList
-              refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} />}
-              data={accountTxnData}
-              keyExtractor={(item, index) => index.toString()}
-              renderItem={ItemView}
-            />
+            (accountTxnData.length == 0) ? <NoTransaction/> :
+            (
+              <>
+                <Text style={{ paddingLeft: 8, color: "white", fontSize: 16,}}>
+                  Transaction History over last 30 days.
+                </Text>
+                <ScrollView style={[styles.graphBg]}>
+                  <BarChart
+                    style={ { height: 200, paddingLeft: 40 } }
+                    data={ txnsPerDay.map(el=> el.amount) }
+                    contentInset={ { top: 20, bottom: 20 } }
+                    svg={ {
+                      strokeWidth: 2,
+                      fill: 'url(#gradient)',
+                    } }
+                    >
+                    <Grid/>
+                    <Gradient/>
+                  </BarChart>                  
+                </ScrollView>
+                <FlatList
+                  refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} />}
+                  data={accountTxnData}
+                  keyExtractor={(item, index) => index.toString()}
+                  renderItem={ItemView}
+                />
+              </>)
           
         }
       </View>

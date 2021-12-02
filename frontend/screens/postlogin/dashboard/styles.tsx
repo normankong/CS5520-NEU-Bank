@@ -127,10 +127,21 @@ export const styles = StyleSheet.create({
         backgroundColor: "#5E76FA",
         flexDirection: "row",
     },
+    accountTransactionTable: {
+        flex: 6,
+        backgroundColor: "#5E76FA",
+        flexDirection: "column",
+    },
 
     animation: {
         width: 50,
         height: 50,
     },
 
+    graphBg: {
+        backgroundColor: "white",
+        borderWidth: 2,
+        height: 300,
+        borderRadius: 10,
+    },
 });
