@@ -16,23 +16,19 @@
     "@react-navigation/stack": "^6.0.11",
     "date-fns": "^2.27.0",
     "expo": "~43.0.2",
-
     "expo-brightness": "~10.0.3",
     "expo-camera": "~12.0.3",
     "expo-facebook": "~12.0.3",
     "expo-google-app-auth": "~9.0.0",
     "expo-local-authentication": "~12.0.1",
     "expo-location": "~13.0.4",
-
     "expo-notifications": "~0.13.3",
-
     "expo-sharing": "~10.0.3",
     "expo-status-bar": "~1.1.0",
     "lottie-react-native": "^5.0.1",
     "react": "17.0.1",
     "react-bootstrap": "^2.0.2",
     "react-dom": "17.0.1",
-
     "react-native": "0.64.3",
     "react-native-btr": "^2.1.2",
     "react-native-charts-wrapper": "^0.5.7",
@@ -45,7 +41,7 @@
     "react-native-safe-area-context": "3.3.2",
     "react-native-screens": "~3.8.0",
     "react-native-snap-carousel": "^3.9.1",
-    "react-native-svg": "^12.1.1",
+    "react-native-svg-charts": "^5.4.0",
     "react-native-table-component": "^1.2.1",
     "react-native-view-shot": "^3.1.2",
     "react-native-web": "0.17.1",
