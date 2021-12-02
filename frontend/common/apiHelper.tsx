@@ -50,6 +50,21 @@ class ApiHelper {
         return json;
     }
 
+    getAllAccountTransaction = async (user) => {
+        let owner = user.email;
+        // let accountNumber = item.accountNumber;
+        let acctTxnURL = apiConfig.account.history;
+
+        let json = await this.fetch(acctTxnURL, {
+            method: 'GET',
+            headers: myHeaders
+        });
+
+        json = json.filter(x => x.Owner == owner);//.filter(x => x.accountNumber == accountNumber)
+
+        return json;
+    }
+
     getATMBranchs = async () => {
         let url = apiConfig.common.atmBranchs
 

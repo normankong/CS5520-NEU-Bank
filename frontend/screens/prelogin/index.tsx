@@ -7,7 +7,6 @@ import * as Facebook from 'expo-facebook';
 import * as Google from "expo-google-app-auth";
 
 // LinkedIn Signin
-// import {LinkedInOAuth} from "react-native-linkedin-oauth"
 import LinkedInModal, {fetchToken} from "rn-linkedin-login"
 
 import neuHelper from '../../common/neuHelper';
@@ -24,7 +23,6 @@ const Screen = ({navigation}) => {
     const [userData, setUserData] = useState(null);
     const [isImageLoading, setImageLoadStatus] = useState(false);
 
-
     const signInAsync = async () => {
         try {
             setLogin(true);
@@ -39,6 +37,7 @@ const Screen = ({navigation}) => {
                     alert("To enjoy NEU Bank service, please open an account with us");
                     setLogin(false);
                 } else {
+                    user.source = "google";
                     neuHelper.setUser(user);
                     navigation.navigate("PostLoginScreen");
                 }
@@ -81,6 +80,7 @@ const Screen = ({navigation}) => {
         }).then(response => response.json()).catch(err => console.log("fetch profile image failed: " + err));
         // console.log(profileImage.profilePicture["displayImage~"].elements[0].identifiers[0].identifier)
         let user = {
+            "source": "linkedin",
             "email": email.elements[0]["handle~"].emailAddress,
             "familyName": profile.localizedLastName,
             "givenName": profile.localizedFirstName,
@@ -166,6 +166,7 @@ const Screen = ({navigation}) => {
                 // console.log(userPicture);
 
                 let user = {
+                    "source" : "facebook",
                     "email": userEmail.email,
                     "id": userID.id,
                     "name": userName.name,

@@ -28,7 +28,7 @@ expo install react-native-snap-carousel
 expo install expo-camera
 <!-- expo install expo-barcode-scanner -->
 expo install expo-brightness
-npm install react-native-btr
+npm install react-native-btr --save
 
 expo install expo-location
 
@@ -39,6 +39,17 @@ expo install expo-local-authentication
 
 npm install react-native-view-shot --save
 expo install expo-sharing
+
+npm i react-native-indicators --save
+npm i react-native-webview --save
+npm i rn-linkedin-login --save
+
+npm i react-bootstrap --save
+<!-- npm i react-facebook-login --save ??? -->
+npm i rn-linkedin-login  --save
+expo install expo-facebook 
+
+https://poc-cloudflare-pages.pages.dev/
 
 ### SHA1 Fingerprint
 openssl rand -base64 32 | openssl sha1 -c
