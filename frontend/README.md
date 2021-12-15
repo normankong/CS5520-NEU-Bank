@@ -1,10 +1,10 @@
-
+[Reference]
 Google Signin   https://inaguirre.medium.com/react-native-login-with-google-quick-guide-fe351e464752
 Facebook Signin https://rishi-vedpathak.medium.com/react-native-login-with-facebook-be53f46b7fe5
 LinkedIn Signin https://docs.microsoft.com/en-us/linkedin/marketing/authentication/lms-generate-an-access-token
 Geeneral        https://medium.com/@milind.patil/social-login-for-react-native-app-facebook-linkedin-gmail-815c4832f77
 
-### expo installation
+### Manual Installion
 expo install @react-navigation/native 
 expo install react-native-gesture-handler 
 expo install react-native-reanimated 
@@ -26,7 +26,7 @@ expo install react-native-paper
 
 expo install react-native-snap-carousel
 expo install expo-camera
-<!-- expo install expo-barcode-scanner -->
+
 expo install expo-brightness
 npm install react-native-btr --save
 
@@ -45,20 +45,16 @@ npm i react-native-webview --save
 npm i rn-linkedin-login --save
 
 npm i react-bootstrap --save
-<!-- npm i react-facebook-login --save ??? -->
 npm i rn-linkedin-login  --save
 expo install expo-facebook 
+
+npmi react-native-svg-charts --save
 
 https://poc-cloudflare-pages.pages.dev/
 
 ### SHA1 Fingerprint
 openssl rand -base64 32 | openssl sha1 -c
 8e:3c:a0:98:dc:23:e9:f1:29:43:9f:5b:93:c0:3e:c6:96:aa:78:23
-
-Mocky Cleanup
-https://designer.mocky.io/manage/delete/d7b36076-53bf-4b6e-bd4b-87d45dcdd026/0lnDUE7pIF2fnlzfa2SUkf5j6jmKBbGkP3wM
-https://designer.mocky.io/manage/delete/a292f9de-7b84-49de-a757-f2817ba7919c/zI1Tmuy2ga8lIujq5Zfd0cp2WK5kJSpAvtHy
-https://designer.mocky.io/manage/delete/cefddf07-77c2-4c94-86e0-80f9da4927c1/bqgfsbJYCBQ2S0TQjrbnnW7C509nkHPg4iW0
 
 ## QR Code
 {
